@@ -1,0 +1,66 @@
+/* Contenedor principal */
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fefefe;
+  border: 2px solid #ffb347; /* Color inspirado en la papaya */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+.container h2 {
+  font-family: 'Georgia', serif;
+  font-size: 2rem;
+  color: #ff7518; /* Color naranja brillante */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Tarjeta */
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen */
+.card-img-top {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #ffb347;
+  transition: opacity 0.3s ease;
+}
+
+.card-img-top:hover {
+  opacity: 0.9;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  padding: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #ff7518;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  text-align: justify;
+}

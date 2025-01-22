@@ -1,0 +1,57 @@
+<!-- tropical.component.html -->
+<div class="container">
+    <h2 class="my-4" style="text-align: center;">Frutas Tropicales</h2>
+    <div class="row">
+      <div class="col-md-4" *ngFor="let fruta of frutas">
+        <div class="card">
+          <img [src]="fruta.img" class="card-img-top" alt="{{ fruta.nombre }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ fruta.nombre }}</h5>
+            <a [routerLink]="['/tropical', fruta.ruta]" class="btn btn-primary">Ver más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <router-outlet></router-outlet>
+
+  <form [formGroup]="productoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" formControlName="nombre" />
+      
+      <div *ngIf="productoForm.get('nombre')?.invalid && productoForm.get('nombre')?.touched">
+        <small *ngIf="productoForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</small>
+        <small *ngIf="productoForm.get('nombre')?.hasError('noNumeros')">El nombre no puede contener números.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="descripcion">Descripción</label>
+      <input id="descripcion" formControlName="descripcion" />
+      
+      <div *ngIf="productoForm.get('descripcion')?.invalid && productoForm.get('descripcion')?.touched">
+        <small *ngIf="productoForm.get('descripcion')?.hasError('required')">La descripción es obligatoria.</small>
+      </div>
+    </div>
+
+    
+    <button type="submit" [disabled]="productoForm.invalid">{{ isEdit ? 'Actualizar Producto' : 'Crear Producto' }}</button>
+  </form>
+
+
+  <h2 style="text-align: center;">Lista de Productos</h2>
+  <ul>
+    <li *ngFor="let producto of productos; let i = index">
+      <p>{{ producto.nombre }} - {{ producto.descripcion }}</p>
+      
+      <button (click)="editProducto(i)">Editar</button>
+      <button (click)="deleteProducto(i)">Eliminar</button>
+    </li>
+  </ul>
+
+  
+
+  
